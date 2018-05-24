@@ -87,3 +87,7 @@ angular.module('sweet.app', ['ionActionButton'])
   });
 })
 ```
+
+# Thanks
+
+This code was originally forked from `Fernando`'s https://market.ionicframework.com/plugins/material-action-button. It has been rewritten, addressing some bug, with `ES6`, `ng-annotate`, bundled with `webpack`. Thank you the great start `Fernando`.
