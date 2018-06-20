@@ -123,6 +123,9 @@ class $actionButton {
       hide: () => {
         return scope.hideButton()
       },
+      remove: () => {
+        return scope.removeButton()
+      },
       visible: () => {
         return visible
       }

@@ -1,6 +1,6 @@
 {
   "name": "ion-action-button",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A Fab button component for Ionic 1.x apps",
   "main": "./dist/ion-action-button.js",
   "scripts": {
