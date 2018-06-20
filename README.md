@@ -31,6 +31,8 @@ angular.module('sweet.app', ['ionActionButton'])
 
 `hide()` - Hides the button. Return promise.
 
+`remove()` - Remove the button. Return promise.
+
 `visible()` - Return boolean. True if visible, false if not.
 
 
