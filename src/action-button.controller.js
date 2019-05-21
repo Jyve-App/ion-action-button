@@ -23,9 +23,7 @@ class ActionButtonComponentCtrl {
   buttonClicked (data) {
     // if the element has no buttons configured...
     if (!this.options.buttons || !this.options.buttons.length) {
-      this.dispatcher({
-        data: data
-      })
+      this.dispatcher({ data })
       return
     }
 
@@ -33,16 +31,12 @@ class ActionButtonComponentCtrl {
     // we pass the openMenu true prop...
     if (data.type === 'main') {
       data.openMenu = true
-      this.dispatcher({
-        data: data
-      })
+      this.dispatcher({ data })
       return
     }
 
     // any other click here has to be from a small button
-    this.dispatcher({
-      data: data
-    })
+    this.dispatcher({ data })
   }
 }
 

@@ -1,8 +1,11 @@
 'use strict'
 
+import { isNil } from './utils/isNil'
+import { uuid } from './utils/uuid'
+
 class $actionButton {
   constructor ($rootScope, $compile, $ionicBody, $animate) {
-    Object.assign(this, {$rootScope, $compile, $ionicBody, $animate})
+    Object.assign(this, { $rootScope, $compile, $ionicBody, $animate })
   }
 
   create (options) {
@@ -10,11 +13,13 @@ class $actionButton {
     let visible = true
 
     scope.options = options
-    scope.options.removeOnStateChange = true
+    scope.options.removeOnStateChange = isNil(options.removeOnStateChange) ? true : options.removeOnStateChange
     scope.menuOpened = false
 
+    options.id = options.id || uuid()
+
     //  Compile the template
-    let element = scope.element = this.$compile('<ion-action-button on-create="show()" options="options" dispatcher="buttonClicked(data)"></ion-action-button>')(scope)
+    let element = scope.element = this.$compile(`<ion-action-button on-create="show()" options="options" dispatcher="buttonClicked(data)"></ion-action-button>`)(scope)
 
     let mainButtonElement
     let secondaryButtonsContainer
@@ -82,8 +87,8 @@ class $actionButton {
       // hack to wait till the element is appended? dont know...
       this.$animate.addClass(element, 'button-active').then(() => {
         visible = true
-        mainButtonElement = angular.element(element[0].getElementsByClassName('action-button'))
-        secondaryButtonsContainer = angular.element(element[0].getElementsByClassName('action-button-small-container'))
+        mainButtonElement = angular.element(document.getElementById(`action-button-${options.id}`))
+        secondaryButtonsContainer = angular.element(document.getElementById(`action-button-small-container-${options.id}`))
 
         if (scope.options.startHidden) {
           return
